@@ -32,6 +32,7 @@ esp = adafruit_esp32spi.ESP_SPIcontrol(spi, esp32_cs, esp32_ready, esp32_reset)
 
 wifi = adafruit_esp32spi_wifimanager.ESPSPI_WiFiManager(esp, secrets)
 
+#switch pin definitions
 switch_pin = DigitalInOut(board.GP2)
 switch_pin.direction = Direction.INPUT
 switch_pin.pull = Pull.UP
@@ -83,6 +84,7 @@ io.on_subscribe = subscribe
 print("Connecting to Adafruit IO...")
 io.connect()
 
+#sends status of button to Adafruit IO
 while True:
 
     switch.update()
